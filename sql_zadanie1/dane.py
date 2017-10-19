@@ -33,6 +33,8 @@ def main(args):
     pracownicy = dane_z_pliku('pracownicy.txt')
     pracownicy = wyczysc_dane(pracownicy,5)
     
+    print(pracownicy)
+    
     dzial = dane_z_pliku('dział.txt')
     return 0
 

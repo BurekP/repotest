@@ -7,7 +7,7 @@ import sqlite3
 from dane import *
 
 def main(args):
-    con = sqlite3.connect(':memory:')
+    con = sqlite3.connect('pracownicy.sqlite3')
     cur = con.cursor()
     
     with open('pracownicy.sql', 'r') as plik:
@@ -22,6 +22,8 @@ def main(args):
     cur.executemany('INSERT INTO dzial VALUES (?, ?, ?)', dzial)
     cur.executemany('INSERT INTO premia VALUES (?, ?)', premia)
     cur.executemany('INSERT INTO pracownicy (id, nazwisko, imie, stanowisko, data_zatr, placa, id_dzial) VALUES (?, ?, ?, ?, ?, ?, ?)', pracownicy)
+    
+    con.commit();
     
     return 0
     
